@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}
+{% block content %}
+
+<div class="logincontainer">
+  
+  <form method="post">
+    <h3 align="center">Login</h3>
+
+      <div class = "form-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="username" 
+          name="username" 
+          placeholder="Enter Username">
+        </input>
+      </div>
+
+      <div class = "form-group">
+        <label for="password1">Password</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="password1" 
+          name="password1" 
+          placeholder="Enter Password">
+      </input>
+      </div>
+
+      <br>
+      <button type="submit" class="btn btn-primary btn-block">login</button>
+      <br> 
+      <button type="submit" class="btn btn-primary btn-block">forgot password?</button>
+    </form>
+
+    <div class="terms">
+      <p>Future Terms & Conditions here.</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,288 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} 
+
+{% block content %}
+
+  <div class="searchcontainer">
+    <form method="post">
+      <h3 align="center">SALES Person Search</h3>
+ 
+      <!-- First Name Form -->
+      <div class = "person-group">
+        <label for="firstName">First Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="firstName" 
+          name="firstName" 
+          placeholder="Subject First Name">
+        </input>
+      </div>
+<br>
+      <div class = "person-group">
+        <label for="lastName">Last Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="lastName" 
+          name="lastName" 
+          placeholder="Subject Last Name">
+        </input>
+      </div>
+
+<br>
+
+      <!-- DOB Form -->
+      <div class = "person-group">
+        <label for="DOB">Date of Birth</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="DOB" 
+          name="DOB" 
+          placeholder="Date of Birth">
+       </input>
+      </div>
+    </form>
+      
+<br> 
+
+      <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#personmodal">Run Search</button>
+
+<br>
+
+    <h3 align="center">SALES Vehicle Plate Search</h3>
+   
+    <div class = "vehicle-group">
+      <form method="post">
+        <label for="vehiclePlate">Vehicle Plate</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="vehiclePlate" 
+          name="vehiclePlate" 
+          placeholder="Vehicle Plate">
+        </input>
+      </form>
+    </div>
+
+<br>
+
+    <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#vehiclemodal">Run Search</button>
+
+<br>
+
+    <!-- Modal -->
+    <div class="modal fade" id="personmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">SALES Search Results - Person Search</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <p>
+            <b>Name:</b> John Doe<br>
+            <b>Date of Birth:</b> 01/01/1990<br>
+            <b>Driver's License:</b> Active, expires 12/31/2024<br>
+            <b>Fishing License:</b> None<br>
+            <b>Hunting License:</b> None<br>
+            <b>Gun License:</b> None<br>
+            <b>Criminal History:</b> <br>
+            <ul>
+              <li><b>Citation:</b> Speeding, 20mph+</li>
+              <li><b>Citation:</b> Failure to yeild</li>
+              <li><b>Arrest:</b> Drunken disorderly</li>
+
+            </ul>
+            </p>
+
+            <h3 class="returnheader">Information on Return</h3>
+            <p class="returndisclaimer">The above return is based off information input by other players and as such,
+              may not be accurate to every user's experience. GTA will randomly generate vehicles to match license plates and
+              names to match NPCs. As a result, the vehicle or name returned may not match the vehicle or person in the game.
+              All data returned is based off name, dob, and license-plates provided by other player's experience. Use the information
+              provided to the extent plausible by your own experience.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="vehiclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">SALES Search Results - Vehicle Search</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+            <div class="modal-body">
+              <p>
+              <b>Vehicle:</b> Banshee <br>
+              <b>Vehicle Color:</b> Blue <br>
+              <b>Registered Owner:</b> John Doe<br>
+              <b>Flags:</b> None<br>
+              <b>Insurance:</b> Valid, expires 12/31/2023<br>
+              <b>Registration:</b> Valid, expires 12/31/2023<br>
+              </p>
+  
+              <h3 class="returnheader">Information on Return</h3>
+              <p class="returndisclaimer">The above return is based off information input by other players and as such,
+                may not be accurate to every user's experience. GTA will randomly generate vehicles to match license plates and
+                names to match NPCs. As a result, the vehicle or name returned may not match the vehicle or person in the game.
+                All data returned is based off name, dob, and license-plates provided by other player's experience. Use the information
+                provided to the extent plausible by your own experience.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="disclaimer-container">
+    <h4>Information</h4>
+    <p class="person-disclaimer">
+      <p> Results returned from the databases pursuant to database queries may not accurately represent events
+        taking place in the game. GTA randomly generates names, dates, license plates, and vehicles as needed throughout gameplay. 
+        This means the results found here in the database are a result of another player entering what they encountered into the system. <br><br>
+        SALES Staff understands this may break immersion in some cases. It is recommended to use the information provided by the database to the
+        level capable during your gameplay. 
+      </p>
+
+      <h4>Adding Information</h4>
+      <p>
+        Did your query return no results? Ensure entry is double-checked to verify accuracy. If the information is correct and there are no results,
+        add the information to the database by using the button below.
+      </p>
+
+      <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addvehiclemodal">Add Vehicle Information</button>
+      <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addpedmodal">Add Ped Information</button>
+
+  </div>
+
+  <div class="modal fade" id="addvehiclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Vehicle Information to SALES</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+            <div class="modal-body">
+              <form method="post">
+
+                <div class = "vehicle-group">
+                <label for="vehiclePlate">Vehicle Plate</label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="vehiclePlate" 
+                  name="vehiclePlate" 
+                  placeholder="Vehicle Plate">
+                  </input>
+                </div>
+
+                <div class = "vehicle-group">
+                <label for="vehicleModel">Vehicle Model</label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="vehicleModel" 
+                  name="vehicleModel"
+                  placeholder="Vehicle Model">
+                  </input>
+                </div>
+
+              </form>
+            </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addpedmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Ped Information to SALES</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post">
+
+              <div class = "person-group">
+                <label for="firstName">First Name</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="firstName" 
+                name="firstName" 
+                placeholder="Subject First Name">
+                </input>
+              </div>
+
+              <br>
+
+              <div class = "person-group">
+                <label for="lastName">Last Name</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="lastName" 
+                name="lastName" 
+                placeholder="Subject Last Name">
+                </input>
+              </div>
+
+              <br>
+
+              <div class = "person-group">
+                <label for="DOB">Date of Birth</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="DOB" 
+                name="DOB" 
+                placeholder="Date of Birth">
+                </input>
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

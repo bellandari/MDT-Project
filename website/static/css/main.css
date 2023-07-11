@@ -1,0 +1,96 @@
+body {
+margin: 0;
+padding: 0;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color: #444;
+}
+
+
+header h1.logo:hover {
+color: #fff;
+text-decoration: none;
+}
+
+
+h1 {
+color: red;
+padding-top: 30px;
+}
+
+h4 {
+    color: red;
+    font-size: 14px;
+}
+
+.float-container {
+border: 3px solid #fff;
+padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+} 
+
+.footer {
+    position: fixed;
+    padding-top: 15px;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(50, 49, 49);
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+.logincontainer {
+    width: 400px;
+    padding: 50px;
+    margin: auto;
+    
+}
+
+.searchcontainer {
+    width: 500px;
+    padding: 50px;
+    margin: auto;
+    float:left;
+    
+}
+
+.disclaimer-container {
+    width: 500px;
+    padding: 50px;
+    margin: auto;
+    float:right;
+}
+
+.terms {
+    font-size: 10px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.information {
+    font-size: 14px;
+}
+
+.updates {
+    font-size: 14px;
+}
+
+.person-disclaimer {
+    font-size: 12px;
+}
+
+.returnheader {
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.returndisclaimer {
+    font-size: 12px;
+    font-style: italic;
+}
