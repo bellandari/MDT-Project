@@ -3,7 +3,7 @@
 {% block content %}
 
   <div class="searchcontainer">
-    <form method="post">
+    <form id="person" method="post">
       <h3 align="center">SALES Person Search</h3>
  
       <!-- First Name Form -->
@@ -33,12 +33,12 @@
 
       <!-- DOB Form -->
       <div class = "person-group">
-        <label for="DOB">Date of Birth</label>
+        <label for="dob">Date of Birth</label>
         <input 
           type="text" 
           class="form-control" 
-          id="DOB" 
-          name="DOB" 
+          id="dob" 
+          name="dob" 
           placeholder="Date of Birth">
        </input>
       </div>
@@ -83,21 +83,10 @@
           </div>
           <div class="modal-body">
 
-            <p>
-            <b>Name:</b> John Doe<br>
-            <b>Date of Birth:</b> 01/01/1990<br>
-            <b>Driver's License:</b> Active, expires 12/31/2024<br>
-            <b>Fishing License:</b> None<br>
-            <b>Hunting License:</b> None<br>
-            <b>Gun License:</b> None<br>
-            <b>Criminal History:</b> <br>
-            <ul>
-              <li><b>Citation:</b> Speeding, 20mph+</li>
-              <li><b>Citation:</b> Failure to yeild</li>
-              <li><b>Arrest:</b> Drunken disorderly</li>
 
-            </ul>
-            </p>
+             {{ results.firstName }} {{ results.lastName }}
+             {{ results.dob }}
+
 
             <h3 class="returnheader">Information on Return</h3>
             <p class="returndisclaimer">The above return is based off information input by other players and as such,
@@ -164,7 +153,8 @@
       <h4>Adding Information</h4>
       <p>
         Did your query return no results? Ensure entry is double-checked to verify accuracy. If the information is correct and there are no results,
-        add the information to the database by using the button below.
+        add the information to the database by using the button below. Similar to GTA, some information will be randomly generated to create history, 
+        licenses, and warrants. 
       </p>
 
       <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addvehiclemodal">Add Vehicle Information</button>
