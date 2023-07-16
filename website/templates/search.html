@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<!-------------------------------------------------------------------------------------------------------->
+
   <div class="searchcontainer">
     <form id="person" method="post">
       <h3 align="center">SALES Person Search</h3>
@@ -17,7 +19,7 @@
           placeholder="Subject First Name">
         </input>
       </div>
-<br>
+  <br>
       <div class = "person-group">
         <label for="lastName">Last Name</label>
         <input 
@@ -28,10 +30,7 @@
           placeholder="Subject Last Name">
         </input>
       </div>
-
-<br>
-
-      <!-- DOB Form -->
+  <br>
       <div class = "person-group">
         <label for="dob">Date of Birth</label>
         <input 
@@ -42,13 +41,11 @@
           placeholder="Date of Birth">
        </input>
       </div>
+      <br>
+    <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#personmodal">Run Search</button>
     </form>
-      
-<br> 
-
-      <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#personmodal">Run Search</button>
-
-<br>
+<!-------------------------------------------------------------------------------------------------------->
+    <br>
 
     <h3 align="center">SALES Vehicle Plate Search</h3>
    
@@ -69,76 +66,29 @@
 
     <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#vehiclemodal">Run Search</button>
 
-<br>
-
-    <!-- Modal -->
-    <div class="modal fade" id="personmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">SALES Search Results - Person Search</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-
-             {{ results.firstName }} {{ results.lastName }}
-             {{ results.dob }}
-
-
-            <h3 class="returnheader">Information on Return</h3>
-            <p class="returndisclaimer">The above return is based off information input by other players and as such,
-              may not be accurate to every user's experience. GTA will randomly generate vehicles to match license plates and
-              names to match NPCs. As a result, the vehicle or name returned may not match the vehicle or person in the game.
-              All data returned is based off name, dob, and license-plates provided by other player's experience. Use the information
-              provided to the extent plausible by your own experience.
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="vehiclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">SALES Search Results - Vehicle Search</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            
-            <div class="modal-body">
-              <p>
-              <b>Vehicle:</b> Banshee <br>
-              <b>Vehicle Color:</b> Blue <br>
-              <b>Registered Owner:</b> John Doe<br>
-              <b>Flags:</b> None<br>
-              <b>Insurance:</b> Valid, expires 12/31/2023<br>
-              <b>Registration:</b> Valid, expires 12/31/2023<br>
-              </p>
-  
-              <h3 class="returnheader">Information on Return</h3>
-              <p class="returndisclaimer">The above return is based off information input by other players and as such,
-                may not be accurate to every user's experience. GTA will randomly generate vehicles to match license plates and
-                names to match NPCs. As a result, the vehicle or name returned may not match the vehicle or person in the game.
-                All data returned is based off name, dob, and license-plates provided by other player's experience. Use the information
-                provided to the extent plausible by your own experience.
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
+
+  <div class="resultscontainer">
+    <p>
+    <h3 align="center">Search Results</h3>
+
+    {% for results in results %}
+
+    Name: {{results.firstName}} {{results.lastName}} <br>
+    DOB: {{results.dob}}<br>
+    Driver's License: {{results.drivers}}<br>
+    Fishing License: {{results.fishing}}<br>
+    Hunting License: {{results.hunting}}<br>
+    Firearm License: {{results.gun}}<br><br>
+
+    Warrants: Coming Soon. <br>
+    Criminal History: Coming Soon. 
+    {% endfor %}
+    
+   </p>
+
+  </div>
+
 
   <div class="disclaimer-container">
     <h4>Information</h4>

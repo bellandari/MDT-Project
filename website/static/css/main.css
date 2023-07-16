@@ -59,11 +59,28 @@ padding: 20px;
     
 }
 
-.disclaimer-container {
+.resultscontainer {
     width: 500px;
     padding: 50px;
     margin: auto;
     float:right;
+    
+}
+
+#resultsdisplay {
+    border: solid 1px #000;
+    width: 500px;
+    height: 500px;
+    padding: 50px;
+    overflow-y: scroll;
+}
+
+.disclaimer-container {
+    width: 1000px;
+    padding: 50px;
+    margin: auto;
+    position: fixed;
+    bottom: 75px;
 }
 
 .terms {

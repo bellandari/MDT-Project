@@ -3,6 +3,13 @@ from flask_login import login_required, current_user
 from .models import Note, Ped
 from . import db
 import json
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+engine = create_engine('sqlite:///instance/mdt.db')
+Session = sessionmaker(bind=engine)
+session = Session()
+
 
 views = Blueprint('views', __name__)
 
@@ -16,15 +23,18 @@ def home():
 @login_required
 def search():     
     
-    firstName = request.form.get('firstName')
-    lastName = request.form.get('lastName')
-    dob = request.form.get('dob')
+    first = request.form.get('firstName')
+    last = request.form.get('lastName')
+    dob = request.form.get('dob')                
     
-    results = Ped.query.filter(firstName==firstName).filter(lastName==lastName).filter(dob==dob).limit(1).first()
-    
+    results = session.query(Ped).filter(Ped.lastName==last, Ped.firstName==first).all()
+
     print(results)
+    
+    for result in results:
+        print(result)
         
-    return render_template("search.html", user=current_user, results = results)
+    return render_template("search.html", user=current_user, results = results, show_modal=True)
 
 @views.route('/help', methods=['GET', 'POST'])
 @login_required
