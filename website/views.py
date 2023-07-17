@@ -19,6 +19,11 @@ def home():
         
     return render_template("home.html", user=current_user)
 
+@views.route('/disclaimer', methods=['GET', 'POST'])
+def disclaimer():
+        
+    return render_template("disclaimer.html", user=current_user)
+
 @views.route('/search', methods=['GET', 'POST'])
 @login_required
 def search():     
