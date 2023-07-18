@@ -5,11 +5,13 @@ from . import db
 import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import os
 
-engine = create_engine('sqlite:///instance/mdt.db')
+file_path = os.path.abspath(os.getcwd())+"instance/mdt.db"
+
+engine = create_engine('sqlite:///'+file_path)
 Session = sessionmaker(bind=engine)
 session = Session()
-
 
 views = Blueprint('views', __name__)
 
@@ -32,12 +34,7 @@ def search():
     last = request.form.get('lastName')
     dob = request.form.get('dob')                
     
-    results = session.query(Ped).filter(Ped.lastName==last, Ped.firstName==first).all()
-
-    print(results)
-    
-    for result in results:
-        print(result)
+    results = session.query(Ped).filter(Ped.lastName==last, Ped.firstName==first, Ped.dob==dob)
         
     return render_template("search.html", user=current_user, results = results, show_modal=True)
 

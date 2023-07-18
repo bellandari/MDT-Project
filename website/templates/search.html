@@ -3,8 +3,8 @@
 {% block content %}
 
 <!-------------------------------------------------------------------------------------------------------->
-
-  <div class="searchcontainer">
+<div class="grid">
+  <div class="box searchcontainer">
     <form id="person" method="post">
       <h3 align="center">SALES Person Search</h3>
  
@@ -68,11 +68,22 @@
 
   </div>
 
-  <div class="resultscontainer">
+  <div class="box resultscontainer">
+
+    <h3 align="center">Search Results</h3>
 
     <p>
 
-    <h3 align="center">Search Results</h3>
+    Name: Alan Jacobs
+    DOB: 01/01/1990
+    Driver's License: 1234567
+    Hunting License: 1234567
+    Gun License: 1234567
+    Fishing License: 1234567
+
+    Warrants: Coming Soon. <br>
+    Criminal History: Coming Soon. 
+
 
     {% for results in results %}
 
@@ -85,10 +96,12 @@
 
     Warrants: Coming Soon. <br>
     Criminal History: Coming Soon. 
+    
     {% endfor %}
     
    </p>
 
   </div>
+</div>
 
 {% endblock %}
