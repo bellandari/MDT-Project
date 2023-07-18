@@ -3,105 +3,135 @@
 {% block content %}
 
 <!-------------------------------------------------------------------------------------------------------->
+
 <div class="grid">
+  
   <div class="box searchcontainer">
+    
     <form id="person" method="post">
-      <h3 align="center">SALES Person Search</h3>
+      
+      <h3 class="searchpage">SALES Person Search</h3>
  
-      <!-- First Name Form -->
       <div class = "person-group">
+       
         <label for="firstName">First Name</label>
+       
         <input 
+        
           type="text" 
           class="form-control" 
           id="firstName" 
           name="firstName" 
           placeholder="Subject First Name">
+        
         </input>
+      
       </div>
-  <br>
+
+      <br>
+     
       <div class = "person-group">
+        
         <label for="lastName">Last Name</label>
+        
         <input 
+          
           type="text" 
           class="form-control" 
           id="lastName" 
           name="lastName" 
           placeholder="Subject Last Name">
+        
         </input>
+      
       </div>
-  <br>
+  
+      <br>
+      
       <div class = "person-group">
+        
         <label for="dob">Date of Birth</label>
+        
         <input 
+          
           type="text" 
           class="form-control" 
           id="dob" 
           name="dob" 
           placeholder="Date of Birth">
-       </input>
+       
+        </input>
+      
       </div>
+      
       <br>
-    <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#personmodal">Run Search</button>
+    
+      <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#personmodal">Run Search</button>
+    
     </form>
-<!-------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------------------------------------------------------------------------->
+    
     <br>
 
-    <h3 align="center">SALES Vehicle Plate Search</h3>
+    <h3 class="searchpage">SALES Vehicle Plate Search</h3>
    
     <div class = "vehicle-group">
+      
       <form method="post">
+        
         <label for="vehiclePlate">Vehicle Plate</label>
+        
         <input 
+          
           type="text" 
           class="form-control" 
           id="vehiclePlate" 
           name="vehiclePlate" 
           placeholder="Vehicle Plate">
+        
         </input>
+      
       </form>
+    
     </div>
 
-<br>
+    <br>
 
     <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#vehiclemodal">Run Search</button>
 
   </div>
 
+  <!-------------------------------------------------------------------------------------------------------->
+
   <div class="box resultscontainer">
 
-    <h3 align="center">Search Results</h3>
+    <div class="resultsdisplay">
+      
+      <h3 class="searchpage">Search Results</h3>
 
-    <p>
+        <p>
+          
+          {% for results in results %}
 
-    Name: Alan Jacobs
-    DOB: 01/01/1990
-    Driver's License: 1234567
-    Hunting License: 1234567
-    Gun License: 1234567
-    Fishing License: 1234567
+            Name: {{results.firstName}} {{results.lastName}} <br>
+            DOB: {{results.dob}}<br>
+            Driver's License: {{results.drivers}}<br>
+            Fishing License: {{results.fishing}}<br>
+            Hunting License: {{results.hunting}}<br>
+            Firearm License: {{results.gun}}<br><br>
 
-    Warrants: Coming Soon. <br>
-    Criminal History: Coming Soon. 
+            Warrants: Coming Soon. <br>
+            Criminal History: Coming Soon. 
 
+          {% endfor %}
 
-    {% for results in results %}
-
-    Name: {{results.firstName}} {{results.lastName}} <br>
-    DOB: {{results.dob}}<br>
-    Driver's License: {{results.drivers}}<br>
-    Fishing License: {{results.fishing}}<br>
-    Hunting License: {{results.hunting}}<br>
-    Firearm License: {{results.gun}}<br><br>
-
-    Warrants: Coming Soon. <br>
-    Criminal History: Coming Soon. 
+        </p>
     
-    {% endfor %}
-    
-   </p>
+      </div>
+  
+    </div>
 
   </div>
-</div>
 
 {% endblock %}

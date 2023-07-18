@@ -5,11 +5,9 @@ from . import db
 import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import os
 
-file_path = os.path.abspath(os.getcwd())+"instance/mdt.db"
 
-engine = create_engine('sqlite:///'+file_path)
+engine = create_engine('sqlite:///instance/mdt.db')
 Session = sessionmaker(bind=engine)
 session = Session()
 
